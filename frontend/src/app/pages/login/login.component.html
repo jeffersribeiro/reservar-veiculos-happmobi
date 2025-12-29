@@ -1,0 +1,51 @@
+<div class="screen">
+  <div class="card">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <img src="assets/logo.svg" alt="" />
+      </div>
+    </div>
+
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+      <label class="field">
+        <app-pill-input
+          formControlName="email"
+          placeholder="Usuário"
+          autocomplete="email"
+        />
+      </label>
+
+      <label class="field">
+        <app-pill-input
+          formControlName="password"
+          placeholder="Senha"
+          type="password"
+          autocomplete="current-password"
+        />
+      </label>
+
+      <app-button
+        [disabled]="form.invalid"
+        [loading]="isSubmitting"
+        label="ENTRAR"
+        type="submit"
+      />
+
+      <span class="link-wrap" (click)="forgotPassword()">
+        <app-link-button label="Esqueci minha senha" />
+      </span>
+    </form>
+
+    <div class="footer">
+      <span>Ainda não tem cadastro?</span>
+      <span class="link-wrap">
+        <app-link-button
+          (click)="goToRegister()"
+          href="/signup"
+          href="/signup"
+          label="Criar conta"
+        />
+      </span>
+    </div>
+  </div>
+</div>

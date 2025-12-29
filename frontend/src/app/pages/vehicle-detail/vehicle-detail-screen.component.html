@@ -1,0 +1,104 @@
+<div class="screen" *ngIf="vm$ | async as vm; else loading">
+  <header class="header">
+    <a class="back" routerLink="/vehicles" aria-label="Voltar">‹</a>
+    <div class="header-title">
+      <div class="kicker">Detalhes do veículo</div>
+      <h1>{{ vm.brand }} {{ vm.model }} - {{ vm.year }}</h1>
+    </div>
+  </header>
+
+  <section class="media">
+    <img
+      class="car"
+      [src]="currentImage(vm)"
+      [alt]="vm.brand + vm.model + vm.year"
+      loading="lazy"
+      draggable="false"
+    />
+
+    <button
+      class="nav prev"
+      type="button"
+      aria-label="Imagem anterior"
+      (click)="prev(vm, $event)"
+      [disabled]="images(vm).length <= 1"
+    >
+      ‹
+    </button>
+
+    <button
+      class="nav next"
+      type="button"
+      aria-label="Próxima imagem"
+      (click)="next(vm, $event)"
+      [disabled]="images(vm).length <= 1"
+    >
+      ›
+    </button>
+
+    <div class="dots" *ngIf="images(vm).length > 1">
+      <button
+        class="dot"
+        *ngFor="let _ of images(vm); let i = index"
+        type="button"
+        [class.is-active]="i === index"
+        (click)="goTo(i, vm, $event)"
+        [attr.aria-label]="'Ir para imagem ' + (i + 1)"
+      ></button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <div class="pill">{{ vm.category || "OTHER" }}</div>
+      <div class="price">
+        <div class="price-label">Diária</div>
+        <div class="price-value">{{ formatMoney(vm.dailyRate) }}</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <div class="spec">
+        <div class="spec-k">Motor</div>
+        <div class="spec-v">{{ formatEngine(vm.engineSizes) }}</div>
+      </div>
+
+      <div class="spec">
+        <div class="spec-k">Lugares</div>
+        <div class="spec-v">{{ vm.seats }}</div>
+      </div>
+
+      <div class="spec">
+        <div class="spec-k">Ano</div>
+        <div class="spec-v">{{ vm.year }}</div>
+      </div>
+
+      <div class="spec">
+        <div class="spec-k">Cor</div>
+        <div class="spec-v">{{ vm.color }}</div>
+      </div>
+    </div>
+
+    <div class="desc" *ngIf="vm.description">
+      <h2>Descrição</h2>
+      <p>{{ vm.description }}</p>
+    </div>
+  </section>
+
+  <footer class="bottom">
+    <app-button
+      (click)="reservar(vm)"
+      [disabled]="reserving"
+      [label]="reserving ? 'Reservando...' : 'Reservar'"
+    />
+  </footer>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <div class="sk sk-hero"></div>
+    <div class="sk sk-line"></div>
+    <div class="sk sk-line"></div>
+    <div class="sk sk-card"></div>
+  </div>
+</ng-template>

@@ -1,0 +1,25 @@
+<div class="avatar-wrap">
+  <div class="avatar">
+    @if (imageSrc) {
+    <img [src]="imageSrc!" alt="Avatar" loading="lazy" />
+    } @else {
+    <div class="placeholder" aria-hidden="true">👤</div>
+    }
+  </div>
+
+  @if (uploadEnabled) {
+  <div class="actions">
+    <input
+      #fileInput
+      type="file"
+      accept="image/jpg"
+      hidden
+      (change)="onPick(fileInput)"
+    />
+
+    <button type="button" class="btn" (click)="fileInput.click()">
+      Upload
+    </button>
+  </div>
+  }
+</div>

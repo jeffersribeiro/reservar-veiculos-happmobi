@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.filter-screen {
+  background: var(--light);
+  min-height: 100vh;
+}
+
+.header {
+  background: var(--color-dark);
+  color: #fff;
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header h1 {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+}
+
+.text-btn {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--color-dark);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text-btn.danger {
+  color: var(--primary);
+}
+
+.section {
+  background: #fff;
+  margin-top: 12px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 6px 16px;
+  background-color: rgba(var(--color-gray-rgb), 0.12);
+}
+
+.section-header h2 {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.chevron {
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.checkbox-grid {
+  display: grid;
+  padding: 26px 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.checkbox-grid label {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.checkbox-grid input {
+  accent-color: var(--primary);
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 26px 16px;
+}
+
+.footer {
+  padding: 20px 16px;
+}

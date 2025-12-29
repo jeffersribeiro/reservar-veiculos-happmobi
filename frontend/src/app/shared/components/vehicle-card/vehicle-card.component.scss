@@ -1,0 +1,142 @@
+.card {
+  width: 280px;
+  height: 360px;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+
+  display: grid;
+  grid-template-rows: 170px 1fr;
+
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  background: #fff;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(15, 23, 42, 0.55);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+  transition: opacity 120ms ease, transform 120ms ease, filter 120ms ease;
+
+  &:disabled {
+    opacity: 0 !important;
+    cursor: default;
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.98);
+  }
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+.card:hover .nav,
+.card:focus-within .nav {
+  opacity: 1;
+}
+
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  &.is-active {
+    background: rgba(255, 255, 255, 0.98);
+    transform: scale(1.1);
+  }
+}
+
+.content {
+  padding: 14px 16px 16px;
+  overflow: hidden;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #1f2937;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

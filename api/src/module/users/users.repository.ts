@@ -8,6 +8,10 @@ export class UserRepository {
     private readonly users: Model<UserDocument>,
   ) {}
 
+  async findOneById(id: string): Promise<User | null> {
+    return await this.users.findById(id);
+  }
+
   async findOneByEmailWithPassword(
     email: string,
   ): Promise<UserDocument | null> {

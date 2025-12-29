@@ -1,0 +1,8 @@
+<a
+  class="underlined-link"
+  [href]="href ?? '#'"
+  [target]="target"
+  (click)="!href && $event.preventDefault()"
+>
+  {{ label }}
+</a>

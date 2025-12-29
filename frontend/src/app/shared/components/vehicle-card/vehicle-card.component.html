@@ -1,0 +1,54 @@
+<article
+  (click)="emitDetails()"
+  (keydown)="onKey($event)"
+  class="card"
+  role="button"
+  tabindex="0"
+>
+  <div class="media">
+    <img
+      [src]="currentImage"
+      [alt]="vm.brand + vm.model + vm.year"
+      loading="lazy"
+      draggable="false"
+    />
+
+    <button
+      class="nav prev"
+      type="button"
+      aria-label="Previous image"
+      (click)="prev($event)"
+      [disabled]="images.length <= 1"
+    >
+      ‹
+    </button>
+
+    <button
+      class="nav next"
+      type="button"
+      aria-label="Next image"
+      (click)="next($event)"
+      [disabled]="images.length <= 1"
+    >
+      ›
+    </button>
+
+    <div class="dots" *ngIf="images.length > 1">
+      <button
+        class="dot"
+        *ngFor="let _ of images; let i = index"
+        type="button"
+        [class.is-active]="i === index"
+        [attr.aria-label]="'Go to image ' + (i + 1)"
+        (click)="goTo(i, $event)"
+      ></button>
+    </div>
+  </div>
+
+  <div class="content">
+    <h3 class="title">{{ vm.brand }} {{ vm.model }} - {{ vm.year }}</h3>
+    <p class="meta">{{ vm.category }}</p>
+    <p class="meta">Motor {{ vm.engineSizes.replace("_", ".") }}</p>
+    <p class="meta">{{ vm.seats }} Lugares</p>
+  </div>
+</article>

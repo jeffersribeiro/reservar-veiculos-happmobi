@@ -1,0 +1,290 @@
+.screen {
+  min-height: 100vh;
+  padding: 16px 16px 92px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.back {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.header-title .kicker {
+  opacity: 0.75;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.header-title h1 {
+  margin: 3px 0 0;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+}
+
+.car {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(15, 23, 42, 0.55);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.media:hover .nav {
+  opacity: 1;
+}
+
+.nav:disabled {
+  opacity: 0;
+  cursor: default;
+}
+
+.nav.prev {
+  left: 10px;
+}
+
+.nav.next {
+  right: 10px;
+}
+
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.dot.is-active {
+  background: rgba(255, 255, 255, 0.98);
+  transform: scale(1.1);
+}
+
+.card {
+  margin-top: 14px;
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.pill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.price {
+  text-align: right;
+}
+
+.price-label {
+  font-size: 12px;
+  opacity: 0.75;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.price-value {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.spec {
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.spec-k {
+  font-size: 12px;
+  opacity: 0.75;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.spec-v {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.desc {
+  margin-top: 12px;
+}
+
+.desc h2 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.desc p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 16px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+}
+
+.primary {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 999px;
+
+  background: #c81d32;
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+
+  transition: transform 0.08s ease, filter 0.15s ease;
+}
+
+.primary:active {
+  transform: translateY(1px);
+}
+
+.primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.loading {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.sk {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.sk::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  animation: shimmer 1.1s infinite;
+}
+
+.sk-hero {
+  height: 220px;
+}
+
+.sk-line {
+  height: 18px;
+  border-radius: 10px;
+}
+
+.sk-card {
+  height: 220px;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

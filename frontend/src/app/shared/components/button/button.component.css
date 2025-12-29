@@ -1,0 +1,89 @@
+.actions {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  height: 56px;
+  display: block;
+
+  border: none;
+  border-radius: 999px;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  transition: transform 0.08s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.secondary {
+  background-color: var(--color-dark);
+}
+
+.primary {
+  background-color: #c81d32;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 10px 20px rgba(200, 29, 50, 0.28);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner svg {
+  width: 18px;
+  height: 18px;
+}
+
+.spinner circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 90;
+  stroke-dashoffset: 60;
+
+  transform-origin: 50% 50%;
+  animation: spin 0.9s linear infinite, dash 1.2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -25;
+  }
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -125;
+  }
+}

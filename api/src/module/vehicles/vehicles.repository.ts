@@ -56,36 +56,16 @@ export class VehiclesRepository {
   async listAvailable(
     input: ListAvailableVehiclesInput = {},
   ): Promise<Vehicle[]> {
-    const {
-      category,
-      brand,
-      model,
-      plate,
-      minDailyPrice,
-      maxDailyPrice,
-      skip = 0,
-      limit = 50,
-    } = input;
+    const { category, seats, engineSizes, skip = 0, limit = 50 } = input;
 
     const query: QueryFilter<Vehicle> = {
       status: VehicleStatus.AVAILABLE as VehicleStatus,
-
       isActive: true,
     };
 
     if (category) query.category = category;
-    if (brand) query.brand = brand;
-    if (model) query.model = model;
-
-    if (plate) {
-      query.plate = { $regex: plate.trim(), $options: 'i' };
-    }
-
-    if (minDailyPrice != null || maxDailyPrice != null) {
-      query.dailyPrice = {};
-      if (minDailyPrice != null) query.dailyPrice.$gte = minDailyPrice;
-      if (maxDailyPrice != null) query.dailyPrice.$lte = maxDailyPrice;
-    }
+    if (seats) query.seats = seats;
+    if (engineSizes) query.engineSizes = engineSizes;
 
     const safeLimit = Math.min(Math.max(limit, 1), 200);
     const safeSkip = Math.max(skip, 0);

@@ -1,0 +1,74 @@
+:root {
+  --color-primary: #c81d32;
+  --color-dark: #1d2b3a;
+  --color-gray-rgb: 195, 185, 181;
+  --color-bg: #f5f5f5;
+  --color-surface: #ffffff;
+
+  --color-text: #2b2b2b;
+  --color-muted: #6b7280;
+
+  --radius-pill: 999px;
+  --radius-card: 16px;
+
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: auto;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+.toast-container .ngx-toastr.app-toast {
+  border-radius: 16px;
+  padding: 14px 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  opacity: 1;
+  background-color: #fff;
+  position: absolute;
+  top: 10%;
+}
+
+.app-toast__title {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin-bottom: 2px;
+}
+
+.app-toast__message {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.toast-container .ngx-toastr.app-toast .toast-progress {
+  opacity: 0.7;
+}
+
+.toast-container .ngx-toastr.app-toast button.toast-close-button {
+  font-size: 18px;
+  line-height: 18px;
+  opacity: 0.8;
+}
+
+.toast-container .toast-success.app-toast {
+  filter: brightness(1.02);
+}
+.toast-container .toast-error.app-toast {
+  filter: brightness(1);
+}
+.toast-container .toast-info.app-toast {
+  filter: brightness(1.02);
+}
+.toast-container .toast-warning.app-toast {
+  filter: brightness(1);
+}

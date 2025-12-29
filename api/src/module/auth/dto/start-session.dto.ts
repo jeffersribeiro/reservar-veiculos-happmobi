@@ -7,6 +7,6 @@ export class StartSessionDto {
 
   @IsString({ message: 'password must be a string' })
   @MinLength(8, { message: 'password must be at least 8 characters' })
-  @MaxLength(72, { message: 'password is too long' }) // 72 is common when hashing with bcrypt
+  @MaxLength(72, { message: 'password is too long' })
   password!: string;
 }

@@ -1,0 +1,259 @@
+.screen {
+  min-height: 100vh;
+  background: #0b0f19;
+  color: #ffffff;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title-area .title {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+.title-area .sub {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.quick {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.quick-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.qc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(200, 29, 50, 0.14);
+  color: #ffffff;
+}
+
+.qc-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.qc-text .qc-title {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.qc-text .qc-sub {
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.qc-arrow {
+  margin-left: auto;
+  opacity: 0.7;
+  font-size: 22px;
+}
+
+.card {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.card-title {
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.faq {
+  display: grid;
+  gap: 8px;
+}
+
+.faq-item {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+}
+
+.faq-q {
+  width: 100%;
+  padding: 12px 12px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  font-weight: 800;
+}
+
+.chev {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 0.15s ease;
+  opacity: 0.7;
+}
+
+.chev.open {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  padding: 0 12px 12px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.contacts {
+  display: grid;
+  gap: 10px;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 44px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.c-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.c-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.c-label {
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 800;
+}
+
+.c-value {
+  font-size: 14px;
+  font-weight: 900;
+  margin-top: 2px;
+}
+
+.c-hint {
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.c-action {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.c-action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(10, 14, 24, 0.88);
+  backdrop-filter: blur(10px);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tab {
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+  gap: 2px;
+}
+
+.tab.active {
+  border-color: rgba(200, 29, 50, 0.6);
+  background: rgba(200, 29, 50, 0.14);
+  color: #ffffff;
+}
+
+.t-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.t-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}

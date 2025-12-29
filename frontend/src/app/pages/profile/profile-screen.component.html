@@ -1,0 +1,45 @@
+<div class="screen">
+  <div class="card">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <img src="assets/logo.svg" alt="" />
+      </div>
+      <div class="subtitle">conta</div>
+    </div>
+
+    <app-avatar-upload
+      [uploadEnabled]="uploadEnabled"
+      [url]="avatarUrl"
+      [fallbackUrl]="'assets/avatar-placeholder.png'"
+      (fileSelected)="onAvatarFileSelected($event)"
+    ></app-avatar-upload>
+
+    <span class="hello">Olá, {{ displayName }}</span>
+
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+      <label class="field">
+        <app-pill-input
+          formControlName="name"
+          placeholder="Nome"
+          autocomplete="name"
+        />
+      </label>
+
+      <label class="field">
+        <app-pill-input
+          formControlName="email"
+          placeholder="E-mail"
+          type="email"
+          autocomplete="email"
+        />
+      </label>
+
+      <app-button
+        [disabled]="form.invalid"
+        [loading]="isSubmitting"
+        label="ATUALIZAR"
+        type="submit"
+      />
+    </form>
+  </div>
+</div>

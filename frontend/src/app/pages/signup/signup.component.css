@@ -1,0 +1,130 @@
+:host {
+  display: block;
+  overflow: hidden;
+  height: 100dvh;
+}
+
+.screen {
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+    1200px 800px at 50% -100px,
+    #26384a 0%,
+    #142536 45%,
+    #0f1f2c 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: radial-gradient(
+      circle at 60% 30%,
+      rgba(255, 255, 255, 0.04),
+      transparent 55%
+    ),
+    url("/assets/icon.svg");
+  background-repeat: no-repeat;
+  background-position: right 40% top 20%;
+  background-size: 220px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.card {
+  width: min(360px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+}
+
+.logo img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.title {
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  margin-top: -2px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  width: 100%;
+}
+
+.error {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(214, 27, 43, 0.18);
+  border: 1px solid rgba(214, 27, 43, 0.35);
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+.footer {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.link-wrap {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.signup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.hello {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}

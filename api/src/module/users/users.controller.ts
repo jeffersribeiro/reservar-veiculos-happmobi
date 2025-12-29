@@ -2,11 +2,14 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   HttpCode,
   HttpStatus,
   Param,
   Patch,
   Post,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -17,6 +20,10 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { Public } from '../auth/decorators/public-route.decorator';
+import type { CurrentUserShape } from '../auth/decorators/current-user.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 
 @ApiBearerAuth('jwt')
 @ApiTags('users')
@@ -24,21 +31,39 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UsersController {
   constructor(private readonly service: UsersService) {}
 
+  @Get('/me')
+  @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({ summary: 'get current user authenticated' })
+  @ApiResponse({ status: 201, description: 'user authenticated' })
+  async getCurrentUser(@CurrentUser() user: CurrentUserShape) {
+    return this.service.getCurrentUser(user.id);
+  }
+
   @Post()
+  @Public()
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Create a new user' })
   @ApiResponse({ status: 201, description: 'user created' })
-  async create(@Body() dto: CreateUserDto) {
-    return this.service.create(dto);
+  @UseInterceptors(FileInterceptor('avatarPhotoUrl'))
+  async create(
+    @Body() dto: CreateUserDto,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    return this.service.create(dto, file);
   }
 
-  @Patch(':id')
+  @Patch()
   @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOperation({ summary: 'Update an existing user by id' })
   @ApiResponse({ status: 204, description: 'user updated' })
   @ApiResponse({ status: 404, description: 'user not found' })
-  async update(@Param('id') id: string, @Body() dto: UpdateUserDto) {
-    await this.service.update(id, dto);
+  @UseInterceptors(FileInterceptor('avatarPhotoUrl'))
+  async update(
+    @CurrentUser() user: CurrentUserShape,
+    @Body() dto: UpdateUserDto,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    await this.service.update(user.id, dto, file);
   }
 
   @Delete(':id')

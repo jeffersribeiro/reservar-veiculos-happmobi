@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.container:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.pill-input {
+  width: 80%;
+  height: 54px;
+
+  border: 0;
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+
+  padding: 0;
+
+  color: #0b1a25;
+
+  font-size: 16px;
+
+  box-shadow: 0;
+}
+
+.pill-input::placeholder {
+  color: rgba(11, 26, 37, 0.42);
+}
+
+.error {
+  margin: 6px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c81d32;
+}
+
+.pill-input.has-error {
+  outline: 2px solid rgba(200, 29, 50, 0.35);
+}

@@ -1,4 +1,17 @@
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: reserva-frontend
+    ports:
+      - "4200:80"
+    restart: unless-stopped
+    depends_on:
+      - api
+    networks:
+      - reserva_net
+
   api:
     build:
       context: ./api

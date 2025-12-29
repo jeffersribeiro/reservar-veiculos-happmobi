@@ -40,6 +40,9 @@ export class Vehicle {
   @Prop({ type: String, trim: true, maxlength: 30, index: true, default: null })
   transmission?: string | null;
 
+  @Prop({ type: String, trim: true, maxlength: 30, index: true, default: null })
+  engineSizes: string | null;
+
   @Prop({ min: 2, max: 9, default: 5 })
   seats!: number;
 

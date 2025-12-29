@@ -1,0 +1,74 @@
+<div class="screen">
+  <div class="card">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <img src="assets/logo.svg" alt="" />
+      </div>
+      <div class="subtitle">Criar conta</div>
+    </div>
+
+    <app-avatar-upload
+      [uploadEnabled]="uploadEnabled"
+      [url]="avatarUrl"
+      [fallbackUrl]="'assets/avatar-placeholder.png'"
+      (fileSelected)="onAvatarFileSelected($event)"
+    ></app-avatar-upload>
+
+    <span class="hello">Olá, {{ displayName }}</span>
+
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+      <label class="field">
+        <app-pill-input
+          formControlName="name"
+          placeholder="Nome"
+          autocomplete="name"
+        />
+      </label>
+
+      <label class="field">
+        <app-pill-input
+          formControlName="email"
+          placeholder="E-mail"
+          type="email"
+          autocomplete="email"
+        />
+      </label>
+
+      <label class="field">
+        <app-pill-input
+          formControlName="password"
+          placeholder="Senha"
+          type="password"
+          autocomplete="new-password"
+        />
+      </label>
+
+      <label class="field">
+        <app-pill-input
+          formControlName="confirmPassword"
+          placeholder="Confirmar senha"
+          type="password"
+          autocomplete="new-password"
+        />
+      </label>
+
+      <div class="error" *ngIf="passwordsMismatch">
+        As senhas não coincidem.
+      </div>
+
+      <app-button
+        [disabled]="form.invalid"
+        [loading]="isSubmitting"
+        label="CRIAR CONTA"
+        type="submit"
+      />
+
+      <div class="footer">
+        <span>Já tem conta?</span>
+        <span class="link-wrap">
+          <app-link-button href="/login" (click)="goToLogin()" label="Entrar" />
+        </span>
+      </div>
+    </form>
+  </div>
+</div>

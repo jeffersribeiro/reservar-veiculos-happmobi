@@ -39,26 +39,26 @@ export class VehiclesController {
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary:
-      'return from databse a lista of all vehicles with AVAILABLE status',
+      'return from database a list of all vehicles with AVAILABLE status',
   })
   @ApiResponse({ status: 200, description: 'list of available vehicles' })
   listAvailable(@Query() query: any) {
     const input: ListAvailableVehiclesInput = {
-      brand: query.brand,
-      category: query.category,
-      model: query.model,
-      plate: query.plate,
-      minDailyPrice: query.minDailyPrice
-        ? Number(query.minDailyPrice)
-        : undefined,
-      maxDailyPrice: query.maxDailyPrice
-        ? Number(query.maxDailyPrice)
-        : undefined,
+      category: query.bodyTypes,
+      seats: query.seats,
+      engineSizes: query.engineSizes,
       skip: query.skip ? Number(query.skip) : 0,
       limit: query.limit ? Number(query.limit) : 50,
     };
 
     return this.service.listAvailable(input);
+  }
+
+  @Get(':id')
+  @HttpCode(HttpStatus.OK)
+  @ApiResponse({ status: 200, description: 'vehicle filtered by id' })
+  getById(@Param('id') id: string) {
+    return this.service.getById(id);
   }
 
   @Post()

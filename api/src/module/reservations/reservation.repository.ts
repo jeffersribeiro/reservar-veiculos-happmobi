@@ -27,8 +27,27 @@ export class ReservationRepository {
     });
   }
 
-  findByUser(userId: string) {
-    return this.reservations.find({ userId });
+  async findByUser(userId: string) {
+    return (
+      await this.reservations
+        .find({ userId })
+        .populate({
+          path: 'vehicleId',
+          select: {
+            plate: 1,
+            brand: 1,
+            model: 1,
+            year: 1,
+            category: 1,
+            imageUrls: 1,
+            dailyRate: 1,
+          },
+        })
+        .lean()
+    ).map(({ vehicleId, ...rest }) => ({
+      ...rest,
+      vehicle: vehicleId, // renomeia
+    }));
   }
 
   finish(reservationId: string) {

@@ -1,0 +1,16 @@
+<button
+  class="btn"
+  [ngClass]="variant"
+  [attr.type]="type"
+  [disabled]="disabled"
+>
+  <span class="btn-content" [class.is-loading]="loading">
+    <span class="spinner" *ngIf="loading" aria-hidden="true">
+      <svg viewBox="0 0 50 50" role="img" focusable="false">
+        <circle cx="25" cy="25" r="20"></circle>
+      </svg>
+    </span>
+
+    <span class="label">{{ label }}</span>
+  </span>
+</button>

@@ -1,0 +1,59 @@
+<div class="screen">
+  <div class="hero">
+    <div class="hero-overlay"></div>
+
+    <app-user-greeting
+      class="greeting"
+      [name]="userName"
+      [avatarUrl]="avatarUrl"
+    ></app-user-greeting>
+
+    <div class="top-actions">
+      <button type="button" class="search-card" (click)="onSearch()">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M10.5 3a7.5 7.5 0 1 0 4.7 13.3l3.8 3.8a1 1 0 0 0 1.4-1.4l-3.8-3.8A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span>Buscar carro</span>
+      </button>
+
+      <button type="button" class="filter-card" (click)="onFilter()">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 6h16a1 1 0 0 0 0-2H4a1 1 0 0 0 0 2Zm3 7h10a1 1 0 0 0 0-2H7a1 1 0 0 0 0 2Zm3 7h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span>Filtrar</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+    <h2 class="section-title">Últimas reservas</h2>
+
+    <div class="cards-row">
+      @for (v of lastBookings; track v.brand) {
+      <app-vehicle-card [vm]="v"></app-vehicle-card>
+      }
+    </div>
+
+    <button type="button" class="qr-btn" (click)="onScanQr()">
+      <span class="qr-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M4 4h6v6H4V4Zm2 2v2h2V6H6Zm8-2h6v6h-6V4Zm2 2v2h2V6h-2ZM4 14h6v6H4v-6Zm2 2v2h2v-2H6Zm10 0h2v2h-2v-2Zm-2-2h2v2h-2v-2Zm4 4h2v2h-2v-2Zm-4 2h2v2h-2v-2Zm4-8h2v2h-2v-2Zm-2 2h2v2h-2v-2Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span>Acessar por QR code</span>
+    </button>
+  </div>
+</div>

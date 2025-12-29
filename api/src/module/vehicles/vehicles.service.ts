@@ -14,6 +14,13 @@ export class VehiclesService {
     private readonly repo: VehiclesRepository,
   ) {}
 
+  async getById(id: string) {
+    const vehicle = await this.repo.finOneById(id);
+    if (!vehicle) throw new NotFoundException('Vehicle not found');
+
+    return vehicle;
+  }
+
   async createVehicle(
     body: CreateVehicleDto,
     images: Express.Multer.File[],

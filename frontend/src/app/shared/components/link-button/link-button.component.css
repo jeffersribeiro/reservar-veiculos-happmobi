@@ -1,0 +1,20 @@
+.underlined-link {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.underlined-link:hover {
+  opacity: 0.85;
+}
+
+.underlined-link:active {
+  opacity: 0.75;
+}

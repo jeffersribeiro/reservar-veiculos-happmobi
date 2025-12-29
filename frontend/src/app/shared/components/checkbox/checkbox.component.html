@@ -1,0 +1,10 @@
+<button
+  type="button"
+  class="native"
+  [class.checked]="checked"
+  [disabled]="disabled"
+  (click)="select(!checked)"
+>
+  <span class="box" aria-hidden="true"></span>
+  <span class="text">{{ label }}</span>
+</button>

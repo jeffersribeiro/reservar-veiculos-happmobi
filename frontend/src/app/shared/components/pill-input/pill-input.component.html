@@ -1,0 +1,13 @@
+<div class="container">
+  <input
+    class="pill-input"
+    [type]="type"
+    [placeholder]="placeholder"
+    [attr.autocomplete]="autocomplete"
+    [disabled]="control.disabled"
+    [value]="control.value ?? ''"
+    (input)="control.setValue($any($event.target).value)"
+    (blur)="control.markAsTouched()"
+  />
+</div>
+<p class="error" *ngIf="showError">{{ errorMessage }}</p>

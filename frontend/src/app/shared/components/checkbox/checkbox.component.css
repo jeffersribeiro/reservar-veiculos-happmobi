@@ -1,0 +1,56 @@
+.native {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.native:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid #111827;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.box::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: transparent;
+  transform: scale(0.8);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.native.checked .box {
+  border-color: #c81d32;
+}
+
+.native.checked .box::after {
+  background: #c81d32;
+  transform: scale(1);
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(29, 43, 58, 1);
+}
+
+.native:focus-visible .box {
+  outline: 3px solid rgba(200, 29, 50, 0.28);
+  outline-offset: 3px;
+}

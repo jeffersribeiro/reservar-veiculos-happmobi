@@ -7,12 +7,9 @@ export enum VehicleStatus {
 }
 
 export interface ListAvailableVehiclesInput {
-  category?: string;
-  brand?: string;
-  model?: string;
-  plate?: string;
-  minDailyPrice?: number;
-  maxDailyPrice?: number;
+  category?: string[];
+  seats?: string[];
+  engineSizes?: string[];
 
   skip?: number;
   limit?: number;

@@ -1,0 +1,80 @@
+<div class="filter-screen">
+  <div class="header">
+    <img src="assets/search.svg" />
+    <h1>BUSCA</h1>
+  </div>
+
+  <div class="top-actions">
+    <button (click)="onCancel()" class="text-btn">CANCELAR</button>
+    <label class="text">FILTROS</label>
+    <button (click)="onClear()" class="text-btn danger">LIMPAR</button>
+  </div>
+
+  <form (submit)="onSubmit()" class="filter" [formGroup]="form">
+    <section class="section">
+      <div class="section-header">
+        <h2>Tipos de carrocerias</h2>
+        <span class="chevron">
+          <img src="assets/left-arrow.svg" />
+        </span>
+      </div>
+
+      <div class="checkbox-grid">
+        <ng-container formArrayName="bodyTypes">
+          <app-checkbox
+            [checked]="!!form.controls.bodyTypes.controls.at(i)?.value"
+            [label]="opt.label"
+            *ngFor="let opt of filters.bodyTypes.options; let i = index"
+            [class.active]="form.controls.bodyTypes.controls.at(i)?.value"
+            (click)="onTogglePill('bodyTypes', i)"
+          />
+        </ng-container>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Tipos de motores</h2>
+        <span class="chevron">
+          <img src="assets/left-arrow.svg" />
+        </span>
+      </div>
+
+      <div class="pill-group">
+        <ng-container formArrayName="engineSizes">
+          <app-toggle
+            [isActive]="!!form.controls.engineSizes.controls.at(i)?.value"
+            [label]="opt.label"
+            *ngFor="let opt of filters.engineSizes.options; let i = index"
+            (click)="onTogglePill('engineSizes', i)"
+          />
+        </ng-container>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Quantidade de lugares</h2>
+        <span class="chevron">
+          <img src="assets/left-arrow.svg" />
+        </span>
+      </div>
+
+      <div class="pill-group">
+        <ng-container formArrayName="seats">
+          <app-toggle
+            [isActive]="!!form.controls.seats.controls.at(i)?.value"
+            [label]="opt.label"
+            *ngFor="let opt of filters.seats.options; let i = index"
+            [class.active]="form.controls.seats.controls.at(i)?.value"
+            (click)="onTogglePill('seats', i)"
+          />
+        </ng-container>
+      </div>
+    </section>
+
+    <div class="footer">
+      <app-button type="submit" variant="secondary" label="APLICAR FILTRO" />
+    </div>
+  </form>
+</div>

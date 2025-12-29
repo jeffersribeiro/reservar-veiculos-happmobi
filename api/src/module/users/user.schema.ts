@@ -11,6 +11,11 @@ export type UserDocument = HydratedDocument<User>;
 export class User {
   @Prop({
     required: true,
+  })
+  avatarPhotoUrl!: string;
+
+  @Prop({
+    required: true,
     trim: true,
     minlength: 2,
     maxlength: 120,
